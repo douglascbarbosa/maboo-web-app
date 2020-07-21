@@ -1,8 +1,8 @@
 <template>
   <div>
-    <b-navbar toggleable="lg" type="dark" variant="info">
-      <b-button class="d-block d-sm-none" @click="backClick" variant="outline-primary"> <b-icon-chevron-left/> </b-button>
-      <b-navbar-brand href="#">Maboo</b-navbar-brand>
+    <b-navbar toggleable="lg" class="header-bg">
+      <b-button class="d-block d-sm-none" @click="backClick" variant="primary"> <b-icon-chevron-left/> </b-button>
+      <b-navbar-brand class="header-brand" href="#">Maboo</b-navbar-brand>
 
       <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
 
@@ -54,3 +54,25 @@ export default {
   }
 }
 </script>
+<style lang="scss" scoped>
+  .header-bg {
+    background-color: #E76F51;
+  }
+  .header-brand {
+    color: #ffffff;
+    font-weight: 600;
+  }
+  .btn-primary{color:#fff;background-color:transparent;border-color:transparent}
+
+  .btn-primary:hover{color:#fff;background-color:transparent;border-color:transparent}
+  .btn-primary:focus,.btn-primary.focus{box-shadow:0 0 0 .2rem rgba(0,90,90,0)}
+  .btn-primary.disabled,.btn-primary:disabled{color:#fff;background-color:transparent;border-color:transparent}
+  .btn-primary:not(:disabled):not(.disabled):active,.btn-primary:not(:disabled):not(.disabled).active,.show>.btn-primary.dropdown-toggle{color:#fff;background-color:transparent;border-color:transparent}
+  .btn-primary:not(:disabled):not(.disabled):active:focus,.btn-primary:not(:disabled):not(.disabled).active:focus,.show>.btn-primary.dropdown-toggle:focus{box-shadow:0 0 0 .2rem rgba(0,90,90,0)}
+
+  .btn-outline-primary{color:teal;background-color:transparent;background-image:none;border-color:teal}.btn-outline-primary:hover{color:#222;background-color:transparent;border-color:transparent}
+  .btn-outline-primary:focus,.btn-outline-primary.focus{box-shadow:0 0 0 .2rem rgba(0,90,90,0)}
+  .btn-outline-primary.disabled,.btn-outline-primary:disabled{color:#fff;background-color:transparent}
+  .btn-outline-primary:not(:disabled):not(.disabled):active,.btn-outline-primary:not(:disabled):not(.disabled).active,.show>.btn-outline-primary.dropdown-toggle{color:#fff;background-color:transparent;border-color:transparent}
+  .btn-outline-primary:not(:disabled):not(.disabled):active:focus,.btn-outline-primary:not(:disabled):not(.disabled).active:focus,.show>.btn-outline-primary.dropdown-toggle:focus{box-shadow:0 0 0 .2rem rgba(0,128,128,0.5)}
+</style>

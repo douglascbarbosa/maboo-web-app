@@ -8,7 +8,7 @@
 <!--  </div>-->
   <div>
     <Header />
-    <div class="container">
+    <div class="container-fluid">
       <router-view />
     </div>
   </div>
@@ -24,25 +24,22 @@ export default {
 }
 </script>
 
-<!--<style lang="scss">-->
-<!--#app {-->
-<!--  font-family: Avenir, Helvetica, Arial, sans-serif;-->
-<!--  -webkit-font-smoothing: antialiased;-->
-<!--  -moz-osx-font-smoothing: grayscale;-->
-<!--  text-align: center;-->
-<!--  color: #2c3e50;-->
-<!--}-->
+<style lang="scss">
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: #d5efeb;
+}
 
-<!--#nav {-->
-<!--  padding: 30px;-->
+/*#nav {*/
+/*  padding: 30px;*/
 
-<!--  a {-->
-<!--    font-weight: bold;-->
-<!--    color: #2c3e50;-->
+/*  a {*/
+/*    font-weight: bold;*/
+/*    color: #2c3e50;*/
 
-<!--    &.router-link-exact-active {-->
-<!--      color: #42b983;-->
-<!--    }-->
-<!--  }-->
-<!--}-->
-<!--</style>-->
+/*    &.router-link-exact-active {*/
+/*      color: #42b983;*/
+/*    }*/
+/*  }*/
+/*}*/
+</style>

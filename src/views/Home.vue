@@ -12,6 +12,11 @@
 </template>
 
 <script>
+export default {
+  data () {
+    return {}
+  }
+}
 // @ is an alias to /src
 // import HelloWorld from '@/components/HelloWorld.vue'
 //

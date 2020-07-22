@@ -27,7 +27,7 @@ export default {
 <style lang="scss">
 body {
   font-family: 'Roboto', sans-serif;
-  background-color: #d5efeb;
+  background-color: #f5f7f6;
 }
 
 /*#nav {*/

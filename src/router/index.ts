@@ -22,18 +22,23 @@ const routes: Array<RouteConfig> = [
     component: () => import('../views/Signup.vue')
   },
   {
+    path: '/bookshelf',
+    name: 'Bookshelf',
+    component: () => import(/* webpackChunkName: "about" */ '../views/Bookshelf.vue')
+  },
+  {
     path: '/profile',
-    name: 'profile',
+    name: 'Profile',
     component: () => import(/* webpackChunkName: "about" */ '../views/Profile.vue')
   },
   {
     path: '/book/:id',
-    name: 'book',
+    name: 'Book',
     component: () => import(/* webpackChunkName: "about" */ '../views/Book.vue')
   },
   {
     path: '/book',
-    name: 'book registration',
+    name: 'Book registration',
     component: () => import(/* webpackChunkName: "about" */ '../views/BookRegistration.vue')
   },
   {

@@ -1,38 +1,23 @@
 <template>
   <div>
     <b-navbar toggleable="lg" class="header-bg">
-      <b-button class="d-block d-sm-none" @click="backClick" variant="primary"> <b-icon-chevron-left/> </b-button>
+      <b-button v-if="showBackButton" class="d-block d-sm-none" @click="backClick" variant="primary"> <b-icon-chevron-left/> </b-button>
       <b-navbar-brand class="header-brand"><router-link to="/">Maboo</router-link></b-navbar-brand>
-
       <b-navbar-toggle target="nav-collapse" class="bg-light"></b-navbar-toggle>
-
       <b-collapse id="nav-collapse" is-nav>
-<!--        <b-navbar-nav>-->
-<!--          <b-nav-item href="#">Link</b-nav-item>-->
-<!--          <b-nav-item href="#" disabled>Disabled</b-nav-item>-->
-<!--        </b-navbar-nav>-->
-
-        <!-- Right aligned nav items -->
         <b-navbar-nav class="ml-auto">
-<!--          <b-nav-form>-->
-<!--            <b-form-input size="sm" class="mr-sm-2" placeholder="Search"></b-form-input>-->
-<!--            <b-button size="sm" class="my-2 my-sm-0" type="submit">Search</b-button>-->
-<!--          </b-nav-form>-->
-
           <div class="d-block d-sm-none header-mobile-options">
-<!--            <router-link tag="b-nav-item" to="/profile">Profile</router-link>-->
             <b-nav-item><router-link to="/"><b-icon-house/> Home</router-link></b-nav-item>
             <b-nav-item><router-link to="/profile"><b-icon-person-circle /> Profile</router-link></b-nav-item>
+            <b-nav-item><router-link to="/about"><b-icon-card-text /> About</router-link></b-nav-item>
             <b-nav-item @click="logout"><b-icon-door-closed /> Sign Out</b-nav-item>
           </div>
-
           <b-nav-item-dropdown class="d-none d-sm-block" right>
-            <!-- Using 'button-content' slot -->
             <template v-slot:button-content>
               <b-avatar icon="gear"></b-avatar> <span class="mr-auto text-white">J. Circlehead</span>
             </template>
-<!--            <b-dropdown-item href="#">Profile</b-dropdown-item>-->
             <router-link tag="b-dropdown-item" to="/profile"><b-icon-person-circle /> Profile</router-link>
+            <router-link tag="b-dropdown-item" to="/about"><b-icon-card-text /> About</router-link>
             <b-dropdown-item @click="logout"><b-icon-door-closed /> Sign Out</b-dropdown-item>
           </b-nav-item-dropdown>
         </b-navbar-nav>
@@ -42,19 +27,52 @@
 </template>
 
 <script>
-import { BIconChevronLeft, BIconPersonCircle, BIconDoorClosed, BIconHouse } from 'bootstrap-vue'
+import { BIconChevronLeft, BIconPersonCircle, BIconDoorClosed, BIconHouse, BIconCardText } from 'bootstrap-vue'
 
+/**
+ * Component responsible to show the navbar with the user information.
+ */
 export default {
   components: {
     BIconChevronLeft,
     BIconPersonCircle,
     BIconDoorClosed,
-    BIconHouse
+    BIconHouse,
+    BIconCardText
+  },
+  mounted () {
+    // Only shows the back button on mobile version and when the route is difrent from Home.
+    this.showBackButton = this.checkRoute(this.$router.currentRoute.name)
+  },
+  data () {
+    return {
+      showBackButton: false
+    }
+  },
+  watch: {
+    // Check the route when it changes to show or hide the back button form mobile version.
+    $route: function (refreshPage) {
+      this.showBackButton = this.checkRoute(refreshPage.name)
+    }
   },
   methods: {
+    /**
+     * Execute the back click event to back the user to the last route.
+     */
     backClick () {
       this.$router.back()
     },
+    /**
+     * Checks if the route name is differrent from Home to show the back button.
+     * @param routeName
+     * @return {boolean}
+     */
+    checkRoute (routeName) {
+      return routeName !== 'Home'
+    },
+    /**
+     * Event used to trigger user logout.
+     */
     logout () {
       this.$router.push('/')
     }

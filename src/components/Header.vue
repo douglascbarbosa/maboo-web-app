@@ -2,7 +2,7 @@
   <div>
     <b-navbar toggleable="lg" class="header-bg">
       <b-button v-if="showBackButton" class="d-block d-sm-none" @click="backClick" variant="primary"> <b-icon-chevron-left/> </b-button>
-      <b-navbar-brand class="header-brand"><router-link to="/">Maboo</router-link></b-navbar-brand>
+      <b-navbar-brand class="header-brand"><router-link to="/"><b-img width="50" src="../assets/logo-maboo.png" /></router-link></b-navbar-brand>
       <b-navbar-toggle target="nav-collapse" class="bg-light"></b-navbar-toggle>
       <b-collapse id="nav-collapse" is-nav>
         <b-navbar-nav class="ml-auto">
@@ -23,6 +23,7 @@
         </b-navbar-nav>
       </b-collapse>
     </b-navbar>
+
   </div>
 </template>
 
